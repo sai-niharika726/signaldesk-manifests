@@ -1,0 +1,15 @@
+# Headless (clusterIP: None) - required for StatefulSet stable network
+# identity, and gives the backend a resolvable name "db" as configured
+# in POSTGRES_HOST above.
+apiVersion: v1
+kind: Service
+metadata:
+  name: db
+spec:
+  clusterIP: None
+  selector:
+    app: db
+  ports:
+    - port: 5432
+      targetPort: 5432
+      name: postgres
