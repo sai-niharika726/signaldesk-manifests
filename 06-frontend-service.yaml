@@ -1,0 +1,15 @@
+# type: ClusterIP by default - reach it via `kubectl port-forward` while
+# testing. For real external access on EKS, change this to
+# "LoadBalancer" (provisions an ELB) or front it with an Ingress instead.
+apiVersion: v1
+kind: Service
+metadata:
+  name: frontend
+spec:
+  type: ClusterIP
+  selector:
+    app: frontend
+  ports:
+    - port: 8000
+      targetPort: 8000
+      name: http
