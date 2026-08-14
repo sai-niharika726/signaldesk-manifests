@@ -17,7 +17,7 @@ spec:
     spec:
       containers:
         - name: frontend
-          image: your-registry/signal-desk-frontend:latest
+          image: bsainiharika/signal-desk:frontend-v1
           ports:
             - containerPort: 8000
           envFrom:
